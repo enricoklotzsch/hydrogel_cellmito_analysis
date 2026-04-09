@@ -1,0 +1,3 @@
+[submodule "napari-mito-hcs"]
+	path = napari-mito-hcs
+	url = https://github.com/denalitherapeutics/napari-mito-hcs.git
