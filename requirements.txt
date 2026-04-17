@@ -3,3 +3,8 @@ scipy
 scikit-image
 matplotlib
 tifffile
+imagecodecs
+pandas
+openpyxl
+napari[all]
+magicgui

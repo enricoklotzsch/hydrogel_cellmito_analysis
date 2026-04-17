@@ -358,6 +358,14 @@ def show_overlay_viewer(folder, channel_ids=[413,414,415], xlsx_path=None):
     # Use new mapping for TIFF loading
     if mapping and selected_well in mapping and tile in mapping[selected_well]:
         z_dict = mapping[selected_well][tile]
+        first_value = next(iter(z_dict.values()), None)
+        if isinstance(first_value, dict):
+            nested_value = next(iter(first_value.values()), None)
+            if isinstance(nested_value, dict):
+                timepoints = sorted(z_dict.keys(), key=lambda x: int(x[1:]) if isinstance(x, str) and len(x) > 1 and x[1:].isdigit() else x)
+                selected_timepoint = timepoints[0] if timepoints else ''
+                print(f"[DEBUG] Using timepoint {selected_timepoint or '(no timepoint)'} for well {selected_well}, tile {tile}")
+                z_dict = z_dict[selected_timepoint]
         zs = sorted(z_dict.keys(), key=lambda x: int(x[1:]) if x[1:].isdigit() else int(x))
         for zslice in zs:
             print(f"[DEBUG] z-slice: {zslice}, available keys: {list(z_dict[zslice].keys())}")
