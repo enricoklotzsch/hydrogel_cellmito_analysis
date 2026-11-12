@@ -10,25 +10,3 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
-
-# Generated outputs and packaging artifacts
-build/
-dist/
-results/
-tmp_*/
-*.log
-*.zip
-*.spec
-
-# Temporary files
-~$*.xlsx
-*.xls
-
-# Flow UMAP generated data/cache
-flow_umap_analysis/results/
-flow_umap_analysis/tmp_uploaded_wsp/
-
-# Bundled export directories
-flow_umap_app_bundle/
-flow_umap_app_no_data/
-flow_umap_app_no_data 2/
